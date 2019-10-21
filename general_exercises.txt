@@ -1,0 +1,58 @@
+1. Assess your knowledge level on the following languages (1 = none; 5 = expert):
+
+* Vanilla JS - 4
+* jQuery - 3
+* HTML/HTML5 - 5
+* CSS/CSS3 - 5
+* Ajax - 4
+* AngularJS - 4
+* Bootstrap - 4
+
+2. What is the width of a container with 100px of width and 5px of padding?
+Ans: 
+    Width of the container will be 110px because
+        width of the container = width of the content + left side padding + right side padding;
+                               = 100px + 5px + 5px;
+                               = 110px; 
+
+3. How to apply a click event to all paragraphs except for the last?
+Ans: 
+    JavaScript Solution:
+    -------------------
+        var pElemsWithoutLastOne = document.querySelectorAll('p:not(:last-child)');
+        for(var i = 0; i< pElemsWithoutLastOne.length; i++){
+            pElemsWithoutLastOne[i].addEventListener('click', function() {
+                alert('clicked');
+            });
+        }
+
+    JQuery Solotion:
+    ---------------
+        This can be done in two ways in jQuery
+        
+        First way, using .not() selector with :last to filter out last element
+        $('p').not(':last').on('click', function() { alert('clicked'); });
+
+        $('p:not(:last)').on('click', function() { alert('clicked'); });
+
+4. Why does the alert show "Jack" first and then undefined?
+
+function identity() {
+    var name = 'Jack';
+    alert(name);
+    return
+    name
+};
+
+var who = identity();
+alert(who)
+
+Ans:
+
+Alert will show "Jack" first because when the identity function gets called it will create a local variable called name and assigned it to 'Jack' there.
+After that alert in that function gets executed, thats why it is showing "Jack" first.
+Once that alert gets dismissed execution continues to next line that is return statement.
+Once the JavaScript engines sees the return statement it just returns whatever is there next to it. But in this case there is nothing after return statement so it is returning nothing.
+NOTE: In JavaScript function statements after return statements won't gets executed.
+That's why "who" variable value is undefined only
+So second alert is displaying "undefined".
